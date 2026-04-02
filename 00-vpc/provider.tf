@@ -6,7 +6,7 @@ terraform {
     }
   }
 backend "s3" {
-    bucket = "devopslabs-remote-state"
+    bucket = "devopslab-remote-state"
     key    = "ec2-eks-demo"
     region = "us-east-1"
     use_lockfile = true
@@ -17,3 +17,4 @@ backend "s3" {
 provider "aws" {
   region = "us-east-1"
 }
+
