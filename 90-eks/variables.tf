@@ -11,8 +11,7 @@ variable "zone_id" {
 }
 
 variable "domain_name" {
-    default = "devopslab.fun
-"
+    default = "devopslab.fun"
 }
 
 variable "eks_version" {
