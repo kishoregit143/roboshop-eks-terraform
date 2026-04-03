@@ -5,13 +5,20 @@ terraform {
       version = "6.31.0"
     }
   }
+# backend "s3" {
+#     bucket = "devopslab-remote-state"
+#     key    = "ec2-eks-eksctl-bastion"
+#     region = "us-east-1"
+#     use_lockfile = true
+#     encrypt = true
+#   }
 backend "s3" {
-    bucket = "devopslab-remote-state"
-    key    = "ec2-eks-eksctl-sg"
-    region = "us-east-1"
-    use_lockfile = true
-    encrypt = true
-  }
+  bucket = "devopslab-remote-state"
+  key    = "20-bastion/terraform.tfstate"
+  region = "us-east-1"
+  use_lockfile = true
+  encrypt = true
+}  
 }
 
 provider "aws" {
