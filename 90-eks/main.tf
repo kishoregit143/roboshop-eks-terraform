@@ -68,6 +68,7 @@ module "eks" {
           value = "true"
           effect = "NO_SCHEDULE"
         }
+      }
       } 
   }
     tags = merge(
