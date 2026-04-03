@@ -10,15 +10,27 @@
 } */
 
 
+# module "sg" {
+
+#     count = length(var.sg_names)
+#     source = "git::https://github.com/kishoregit143/terraform_aws_sg_cm.git?ref=main"
+#     project_name = var.project_name
+#     environment = var.environment
+#     sg_name = var.sg_names[count.index]
+#     sg_description = "Created for ${var.sg_names[count.index]}"
+#     vpc_id =  local.vpc_id
+# }
 module "sg" {
 
-    count = length(var.sg_names)
-    source = "git::https://github.com/kishoregit143/terraform_aws_sg_cm.git?ref=main"
-    project_name = var.project_name
-    environment = var.environment
-    sg_name = var.sg_names[count.index]
-    sg_description = "Created for ${var.sg_names[count.index]}"
-    vpc_id =  local.vpc_id
+  for_each = toset(var.sg_names)
+
+  source = "git::https://github.com/kishoregit143/terraform_aws_sg_cm.git?ref=main"
+
+  project_name   = var.project_name
+  environment    = var.environment
+  sg_name        = each.value
+  sg_description = "Created for ${each.value}"
+  vpc_id         = local.vpc_id
 }
 
 # Frontend accepting traffic from frontend ALB
