@@ -14,7 +14,7 @@ pipeline {
         ansiColor('xterm')
     }
 
-    }
+
   
     stages {
         stage('Init') {
