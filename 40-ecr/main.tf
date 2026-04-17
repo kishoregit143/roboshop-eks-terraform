@@ -1,5 +1,5 @@
-resource "aws_ecr_repository" "catalogue" {
-  name                 = "${var.project_name}/catalogue"
+resource "aws_ecr_repository" "catalogue1" {
+  name                 = "${var.project_name}/catalogue1"
   image_tag_mutability = "MUTABLE"
 
   image_scanning_configuration {
