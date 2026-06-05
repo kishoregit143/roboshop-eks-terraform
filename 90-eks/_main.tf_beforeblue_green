@@ -2,7 +2,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 21.0" # this is module version
 
-  name               = local.common_name_suffix
+  name               = roboshop-dev-1
   kubernetes_version = "1.32"
   # kubernetes_version = var.eks_version
 
@@ -45,7 +45,7 @@ module "eks" {
       min_size     = 2
       max_size     = 10
       desired_size = 2
-   
+
       # taints = {
       #   upgrade = {
       #     key = "upgrade"
@@ -58,7 +58,7 @@ module "eks" {
       #   nodegroup = "blue"
       # }
     }
-      #till Blue it is node grop creating we have eanable green for cluster upgradation
+
     # green = {
     #   create = var.enable_green
     #   ami_type       = "AL2023_x86_64_STANDARD"
