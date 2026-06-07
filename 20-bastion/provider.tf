@@ -13,8 +13,9 @@ terraform {
 #     encrypt = true
 #   }
 backend "s3" {
-  bucket = "devopslab-remote-state"
-  key    = "20-bastion/terraform.tfstate"
+  bucket = "86s-remote"
+  key    = "eks-bastion"
+  # key    = "20-bastion/terraform.tfstate"
   region = "us-east-1"
   use_lockfile = true
   encrypt = true
